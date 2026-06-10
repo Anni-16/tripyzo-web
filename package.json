@@ -1,0 +1,48 @@
+{
+  "name": "tripyzo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
+  },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.3.3",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-popover": "^1.1.14",
+    "@radix-ui/react-radio-group": "^1.3.8",
+    "@radix-ui/react-select": "^2.2.5",
+    "@radix-ui/react-slider": "^1.3.6",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-switch": "^1.2.6",
+    "axios": "^1.13.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "crypto-js": "^4.2.0",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.18.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.3",
+    "lodash": "^4.17.23",
+    "lucide-react": "^0.516.0",
+    "next": "^16.1.6",
+    "next-sitemap": "^4.2.3",
+    "postcss": "^8.5.8",
+    "react": "^19.0.0",
+    "react-date-range": "^2.0.1",
+    "react-day-picker": "^9.7.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "swiper": "^11.2.10",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "tailwindcss": "^4.2.1",
+    "tw-animate-css": "^1.3.4"
+  }
+}

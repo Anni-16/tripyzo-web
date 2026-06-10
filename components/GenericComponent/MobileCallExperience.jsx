@@ -1,0 +1,37 @@
+"use client";
+
+import { useMemo } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import MobileBanner from "./MobileBanner";
+import MobileModal from "./MobileModal";
+
+const EXCLUDED_PATH_PREFIXES = ["/flights-booking", "/flights/search", "/es-sp"];
+
+const formatText = (text) =>
+  text.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+export default function MobileCallExperience() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const shouldSkip = EXCLUDED_PATH_PREFIXES.some(
+    (path) => pathname === path || pathname?.startsWith(`${path}/`),
+  );
+
+  const qstrRaw = searchParams.get("qstr");
+  const utmCampaign = searchParams.get("utm_campaign");
+  const utmSamp = searchParams.get("utm_samp");
+
+  const dynamicTitle = useMemo(() => {
+    return qstrRaw ? formatText(qstrRaw) : "Cheap Flight Deals";
+  }, [qstrRaw]);
+
+  if (shouldSkip) return null;
+
+  return (
+    <>
+      <MobileBanner headingText={dynamicTitle} />
+      {(utmCampaign || utmSamp) && <MobileModal airlineName={dynamicTitle} />}
+    </>
+  );
+}
