@@ -33,16 +33,16 @@ export const ContactInfo = {
   addresses: {
     headquarters: {
       name: "Headquarters",
-      street: "13188 Juliet Way",
+      street: "13217 Juliet Way",
       suite: "",
       city: "Frisco",
       state: "TX",
       zipCode: "75035",
       country: "USA",
-      fullAddress: "13188 Juliet Way, Frisco, TX 75035, USA",
+      fullAddress: "13217 Juliet Way, Frisco, TX 75035, USA",
       mapUrl: "https://maps.google.com",
       mapEmbedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3341.331278946219!2d-96.76655972482631!3d33.12666036603649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3d9b929a05a1%3A0xd111b7f7435eadfe!2s13188%20Juliet%20Way%2C%20Frisco%2C%20TX%2075035!5e0!3m2!1sen!2sus!4v1779141697454!5m2!1sen!2sus",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3341.331278946219!2d-96.76655972482631!3d33.12666036603649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c3d9b929a05a1%3A0xd111b7f7435eadfe!2s13217%20Juliet%20Way%2C%20Frisco%2C%20TX%2075035!5e0!3m2!1sen!2sus!4v1779141697454!5m2!1sen!2sus",
     },
   },
 
@@ -56,7 +56,7 @@ export const ContactInfo = {
   // Default Values
   defaultPhone: "1-844-572-3292",
   defaultEmail: "info@tripyzo.com",
-  defaultAddress: "13188 Juliet Way, Frisco, TX 75035, USA",
+  defaultAddress: "13217 Juliet Way, Frisco, TX 75035, USA",
 };
 
 // Helper function to get the primary phone

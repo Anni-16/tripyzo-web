@@ -65,11 +65,11 @@ const Footer = () => {
               className="h-18 object-contain brightness-0 invert"
             />
           </Link>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+          {/* <p className="text-gray-300 text-sm md:text-base leading-relaxed">
             <strong>Tripyzo</strong> is an independent travel agency helping
             travelers compare flights, review booking options, and get
             English-speaking support before and after ticketing.
-          </p>
+          </p> */}
         </div>
 
         <div className="md:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-8">
