@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import MobileBanner from "./MobileBanner";
 import MobileModal from "./MobileModal";
 
-const EXCLUDED_PATH_PREFIXES = ["/flights-booking", "/flights/search", "/es-sp"];
+const EXCLUDED_PATH_PREFIXES = ["/flights-booking", "/flights/search", "/es-usa", "/es-sp"];
 
 const formatText = (text) =>
   text.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());

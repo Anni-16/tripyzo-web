@@ -26,8 +26,8 @@ const services = [
 ];
 
 const CustomerServiceSpanish = () => {
-  const phoneNumber = getPhoneDisplay();
-  const phoneHref = getPhoneHref();
+  const phoneNumber = getPhoneDisplay("spanish");
+  const phoneHref = getPhoneHref("spanish");
 
   return (
     <section className="block bg-white px-4 py-6 md:hidden">

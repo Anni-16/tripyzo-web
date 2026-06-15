@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { getPhoneByLanguage, getPhoneHref } from "@/config/ContactInfo";
 import { FiPhone } from "react-icons/fi";
 
 const MobileModal = ({ airlineName = "Airline", translations }) => {
   const [showModal, setShowModal] = useState(false);
-  const currentPhone = getPhoneByLanguage();
+  const pathname = usePathname();
+  const currentPhone = getPhoneByLanguage(pathname);
   const phoneNumber = currentPhone.displayNumber || currentPhone.number;
-  const phoneHref = getPhoneHref();
+  const phoneHref = getPhoneHref(pathname);
 
   // Determine colors based on language
   const bgColorClass = "bg-primary";

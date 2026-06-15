@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import {
   ContactInfo,
   getAddressDisplay,
@@ -43,8 +44,9 @@ const policyLinks = [
 ];
 
 const Footer = () => {
-  const phoneNumber = getPhoneDisplay();
-  const phoneHref = getPhoneHref();
+  const pathname = usePathname();
+  const phoneNumber = getPhoneDisplay(pathname);
+  const phoneHref = getPhoneHref(pathname);
   const mainAddress = getAddressDisplay();
 
   return (

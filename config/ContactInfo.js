@@ -6,7 +6,7 @@ export const ContactInfo = {
   website: "https://tripyzo.com",
   websiteDisplay: "Tripyzo.com",
 
-  // Primary English phone support
+  // Primary phone support for English and Spanish pages
   phones: {
     english: {
       // canonical numeric form (no separators), display uses 1-XXX-XXX-XXXX
@@ -15,9 +15,36 @@ export const ContactInfo = {
       displayNumber: "1-844-572-3292",
       // linkNumber kept in E.164
       linkNumber: "+18445723292",
-      language: "English",
+      language: "english",
       trackingId: "phone_english",
       department: "English Support",
+    },
+    spanish: {
+      number: "18339501781",
+      cleanNumber: "+18339501781",
+      displayNumber: "(833) 950-1781",
+      linkNumber: "+18339501781",
+      language: "spanish",
+      trackingId: "phone_spanish",
+      department: "Spanish Support (USA)",
+    },
+    "spanish-mx": {
+      number: "528009537954",
+      cleanNumber: "+528009537954",
+      displayNumber: "52-800-953-7954",
+      linkNumber: "+528009537954",
+      language: "spanish-mx",
+      trackingId: "phone_spanish_mx",
+      department: "Spanish Support (Mexico)",
+    },
+    "spanish-usa": {
+      number: "18339501781",
+      cleanNumber: "+18339501781",
+      displayNumber: "1-833-950-1781",
+      linkNumber: "+18339501781",
+      language: "spanish-usa",
+      trackingId: "phone_spanish_usa",
+      department: "Spanish Support (USA)",
     },
   },
 
@@ -60,8 +87,41 @@ export const ContactInfo = {
 };
 
 // Helper function to get the primary phone
-export const getPhoneByLanguage = () => {
-  return ContactInfo.phones.english;
+const getLanguageFromPath = (pathname) => {
+  if (typeof pathname !== "string") {
+    if (typeof window !== "undefined") {
+      pathname = window.location.pathname;
+    } else {
+      return "english";
+    }
+  }
+
+  const normalized = pathname.toLowerCase();
+  
+  // Check for specific Spanish variants first
+  if (normalized.startsWith("/es-mx")) {
+    return "spanish-mx";
+  }
+  if (normalized.startsWith("/es-usa")) {
+    return "spanish-usa";
+  }
+  if (normalized.startsWith("/es-sp")) {
+    return "spanish-usa"; // Legacy: es-sp maps to spanish-usa
+  }
+  if (normalized === "/es" || normalized.startsWith("/es/")) {
+    return "spanish"; // Default to general Spanish if no specific variant
+  }
+
+  return "english";
+};
+
+export const getPhoneByLanguage = (language) => {
+  if (typeof language === "string" && language.startsWith("/")) {
+    language = getLanguageFromPath(language);
+  }
+
+  const lang = language?.toLowerCase() || getLanguageFromPath();
+  return ContactInfo.phones[lang] || ContactInfo.phones.english;
 };
 
 // Helper function to get primary contact
@@ -83,13 +143,13 @@ export const formatPhoneForLink = (phone) => {
   return phone.replace(/[^\d+]/g, "");
 };
 
-export const getPhoneDisplay = (language = "english") => {
-  const phone = getPhoneByLanguage(language);
+export const getPhoneDisplay = (language, pathname) => {
+  const phone = getPhoneByLanguage(pathname || language);
   return phone.displayNumber || phone.number || ContactInfo.defaultPhone;
 };
 
-export const getPhoneHref = (language = "english") => {
-  const phone = getPhoneByLanguage(language);
+export const getPhoneHref = (language, pathname) => {
+  const phone = getPhoneByLanguage(pathname || language);
   const rawPhone = phone.linkNumber || phone.cleanNumber || phone.number;
   return `tel:${formatPhoneForLink(rawPhone)}`;
 };

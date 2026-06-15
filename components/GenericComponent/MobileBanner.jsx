@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { getPhoneByLanguage, getPhoneHref } from "@/config/ContactInfo";
 import { FiPhone } from "react-icons/fi";
 import { FaClock, FaTag } from "react-icons/fa6";
@@ -35,9 +36,10 @@ const MobileBanner = ({
   headingText = "Cheap Flight Deals",
   content = DEFAULT_CONTENT,
 }) => {
-  const currentPhone = getPhoneByLanguage();
+  const pathname = usePathname();
+  const currentPhone = getPhoneByLanguage(pathname);
   const phoneNumber = currentPhone.displayNumber || currentPhone.number;
-  const phoneHref = getPhoneHref();
+  const phoneHref = getPhoneHref(pathname);
 
   const benefits = [
     { icon: <BsLightningCharge />, text: content.benefits[0] },

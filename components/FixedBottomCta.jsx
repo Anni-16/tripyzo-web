@@ -1,12 +1,14 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { PhoneCall } from "lucide-react";
 import { getPhoneDisplay, getPhoneHref } from "@/config/ContactInfo";
 
 export default function FixedBottomCTA() {
-  const phoneNumber = getPhoneDisplay();
-  const phoneHref = getPhoneHref();
+  const pathname = usePathname();
+  const phoneNumber = getPhoneDisplay("spanish", pathname);
+  const phoneHref = getPhoneHref("spanish", pathname);
 
   if (!phoneHref) return null;
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -27,8 +27,8 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const phoneNumber = getPhoneDisplay();
-  const phoneHref = getPhoneHref();
+  const phoneNumber = getPhoneDisplay(pathname);
+  const phoneHref = getPhoneHref(pathname);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -104,13 +104,10 @@ export default function Navbar() {
 
           {/* RIGHT SIDE ACTIONS */}
           <div className="flex items-center gap-3">
-
-            {/* USER PROFILE DROPDOWN */}
-
             <div className="hidden lg:block">
               <Link
                 href={phoneHref}
-                className="flex items-center gap-3 px-6 py-3  text-gray-900 rounded-none  "
+                className="flex items-center gap-3 px-6 py-3 text-gray-900 rounded-none"
                 aria-label="Call 24/7 support"
               >
                 <div className="relative">
@@ -138,7 +135,6 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Full Phone Number on Mobile */}
             <Link
               href={phoneHref}
               className="flex md:hidden items-center justify-center bg-blue-600 text-white px-3 py-2 rounded-full text-sm font-semibold"
@@ -147,7 +143,6 @@ export default function Navbar() {
               <PhoneCall className="w-4 h-4 mr-1" />
             </Link>
 
-            {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setOpen(!open)}
               className="lg:hidden p-2 rounded-lg text-text-light hover:text-primary transition-colors duration-200"
@@ -162,11 +157,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
         <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-white z-40 overflow-y-auto">
           <div className="px-4 py-6 space-y-4">
-            {/* Navigation Links */}
             <div className="space-y-1">
               {navLinks.map((link, index) => (
                 <Link
@@ -180,7 +173,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Auth Buttons */}
             {!user && (
               <div className="space-y-2 pt-2">
                 <Link
@@ -189,9 +181,7 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-2 w-full bg-primary text-white px-4 py-3 rounded-lg font-medium"
                 >
                   <HiUser className="text-lg" />
-                  <span>
-                    Sign In
-                  </span>
+                  <span>Sign In</span>
                 </Link>
                 <Link
                   href="/register"
@@ -199,9 +189,7 @@ export default function Navbar() {
                   className="flex items-center justify-center gap-2 w-full border border-primary/20 text-primary px-4 py-3 rounded-lg font-medium hover:bg-primary-soft"
                 >
                   <HiUserCircle className="text-lg" />
-                  <span>
-                    Create Account
-                  </span>
+                  <span>Create Account</span>
                 </Link>
               </div>
             )}
