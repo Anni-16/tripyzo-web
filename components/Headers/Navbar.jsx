@@ -143,6 +143,7 @@ export default function Navbar() {
               <PhoneCall className="w-4 h-4 mr-1" />
             </Link>
 
+            {!pathname?.startsWith("/es-mx") && (
             <button
               onClick={() => setOpen(!open)}
               className="lg:hidden p-2 rounded-lg text-text-light hover:text-primary transition-colors duration-200"
@@ -153,6 +154,7 @@ export default function Navbar() {
                 <HiMenu className="text-xl" />
               )}
             </button>
+            )}
           </div>
         </div>
       </div>
