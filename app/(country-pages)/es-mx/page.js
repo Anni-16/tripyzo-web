@@ -15,12 +15,12 @@ const MexicoPage = () => {
       </Suspense>
       <div className="hidden md:block">
         <Navbar />
+        <Banner
+          titleLine1="Ofertas Exclusivas de Vuelos"
+          titleLine2="y Ahorros en Tarifas Aéreas"
+          description="Reserve vuelos nacionales e internacionales con total confianza. Descubra tarifas aéreas competitivas, opciones de viaje flexibles y asistencia especializada para la reserva de su próximo viaje."
+        />
       </div>
-      <Banner
-        titleLine1="Ofertas Exclusivas de Vuelos"
-        titleLine2="y Ahorros en Tarifas Aéreas"
-        description="Reserve vuelos nacionales e internacionales con total confianza. Descubra tarifas aéreas competitivas, opciones de viaje flexibles y asistencia especializada para la reserva de su próximo viaje."
-      />
       <HelpSpanish />
       <CustomerServiceSpanish />
       <TicketsContentSpanish />

@@ -52,10 +52,10 @@ const MobileBanner = ({
     <>
       <div className="fixed top-0 left-0 right-0 w-full py-3 px-4 z-[999999] shadow-lg md:hidden bg-primary">
         <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
-          <div className="relative h-10 w-10">
+          <a href={phoneHref} className="relative h-10 w-10 flex items-center justify-center">
             <div className="absolute inset-0 bg-white/20 rounded-full animate-ping" />
             <FiPhone className="relative text-white text-2xl animate-pulse" />
-          </div>
+          </a>
           <div className="text-center">
             <p className="text-white/90 text-xs font-medium">
               {content.topBar}
@@ -71,7 +71,6 @@ const MobileBanner = ({
         <div className="px-4 py-3 bg-white shadow-sm">
           <Navbar />
         </div>
-
         <div className="px-4 mt-4">
           <div className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-4 text-center border border-primary/20">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -192,22 +191,7 @@ const MobileBanner = ({
         </div>
       </section>
 
-      <div className="fixed bottom-0 left-0 right-0 w-full py-3 px-4 z-[999999] shadow-lg md:hidden bg-primary">
-        <div className="flex items-center justify-center gap-3 max-w-md mx-auto">
-          <div className="relative">
-            <div className="absolute inset-0 bg-white/30 rounded-full animate-ping" />
-            <FiPhone className="relative text-white text-2xl animate-pulse" />
-          </div>
-          <div className="text-center">
-            <p className="text-white/90 text-xs font-medium">
-              {content.bottomBar}
-            </p>
-            <a href={phoneHref} className="block font-bold text-xl text-white tracking-wide">
-              {phoneNumber}
-            </a>
-          </div>
-        </div>
-      </div>
+
     </>
   );
 };
