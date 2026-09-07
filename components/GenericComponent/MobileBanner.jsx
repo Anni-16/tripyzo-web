@@ -101,7 +101,7 @@ const MobileBanner = ({
                 <a
                   key={text}
                   href={phoneHref}
-                  className="py-3 rounded-xl text-center font-semibold text-white bg-primary shadow-md active:scale-95 transition-transform"
+                  className="py-3 rounded-xl text-center text-sm font-semibold text-white bg-primary shadow-md active:scale-95 transition-transform"
                 >
                   {text}
                 </a>
@@ -117,10 +117,10 @@ const MobileBanner = ({
                 key={benefit.text}
                 className="bg-white rounded-xl p-3 text-center shadow-sm border border-gray-100"
               >
-                <div className="text-primary text-xl mx-auto mb-1">
+                <div className="flex justify-center text-primary text-xl mb-1">
                   {benefit.icon}
                 </div>
-                <p className="text-xs text-gray-600 font-medium">{benefit.text}</p>
+                <p className="text-[11px] text-gray-600 font-medium">{benefit.text}</p>
               </div>
             ))}
           </div>
