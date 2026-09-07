@@ -5,7 +5,20 @@ import { usePathname, useSearchParams } from "next/navigation";
 import MobileBanner from "./MobileBanner";
 import MobileModal from "./MobileModal";
 
-const EXCLUDED_PATH_PREFIXES = ["/flights-booking", "/flights/search", "/es-usa", "/es-usa-sitelink", "/es-sp", "/es-mx"];
+const EXCLUDED_PATH_PREFIXES = [
+  "/flights-booking",
+  "/flights/search",
+  "/es-usa",
+  "/es-usa-sitelink",
+  "/es-usa-sitelink-1",
+  "/es-usa-sitelink-2",
+  "/es-usa-sitelink-3",
+  "/es-usa-sitelink-4",
+  "/es-usa-sitelink-5",
+  "/es-usa-sitelink-6",
+  "/es-sp",
+  "/es-mx",
+];
 
 const formatText = (text) =>
   text.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
