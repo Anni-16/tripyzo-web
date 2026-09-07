@@ -1,11 +1,6 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /booking/
-Disallow: /flights/search/
-Disallow: /login/
-Disallow: /my-booking/
-Disallow: /register/
 
 # Host
 Host: https://tripyzo.com
